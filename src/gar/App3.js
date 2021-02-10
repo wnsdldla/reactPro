@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './assets/css/App.css';
 import userEvent from '@testing-library/user-event';
-import { Clock } from './components/Clock';
-import { Toggle } from './components/Toggle';
-import { Toggle2 } from './components/Toggle2';
+import { Clock } from '../components/Clock';
+import { Toggle } from '../components/Toggle';
+import { Toggle2 } from '../components/Toggle2';
 
 function Greeting(props){
   return (

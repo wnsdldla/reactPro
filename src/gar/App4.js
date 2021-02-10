@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../assets/css/App.css';
 import userEvent from '@testing-library/user-event';
-import { Clock } from './components/Clock';
+import { Clock } from '../components/Clock';
 
 function Greeting(props){
   return (

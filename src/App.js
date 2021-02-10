@@ -1,15 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+
 import App2 from "./App2";
 import Board from "./Board";
-import './App.css';
+import './assets/css/App.css';
 import {Link, Route, BrowserRouter as Router } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
+
 import Profile from './Profile';
 import {signIn} from "./auth";
 import AuthRoute from './AuthRoute';
 import LogoutButton from './LogoutButton';
 import LoginForm from './LoginForm';
+import BoardDetail from './BoardDetail';
+
 
 function App() {
   const [user,setUser ] = useState(null);
@@ -31,6 +33,7 @@ function App() {
           <Link to="/Board">
             <button>Board</button>
           </Link>
+         
           {authenticated ? (
             <LogoutButton logout={logout}/>
           ):(
@@ -50,6 +53,12 @@ function App() {
             />
             <Route path="/App2" component={App2}/>
             <Route path="/Board" component={Board}/>
+            
+            <Route path="/BoardDetail" 
+            render={(data)=>
+              <BoardDetail boardContent={data.boardContent} boardTitle={data.boardTitle}/>
+              }
+            />
             <Route 
             path="/login"
             render={props => (

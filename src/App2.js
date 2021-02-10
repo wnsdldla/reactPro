@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
-import './App.css';
-import userEvent from '@testing-library/user-event';
+import './assets/css/App.css';
+
 import { Clock } from './components/Clock';
-import {Link, Route, BrowserRouter as Router } from 'react-router-dom';
-import App4 from "./App4";
+import customInfo from './customInfo';
 
 function App2() {
+  const [info , setInfo] = useState('');
+  
+  function callback(data){
+    setInfo(data);
+  }
+  useEffect(
+    ()=>{
+      console.log("before");
+      customInfo('/info',callback);
+    },[]
+  );
+
   return (
     <div className="App2">
       <header className="App-header">
@@ -15,13 +26,7 @@ function App2() {
           App2
           <Clock/>        
         </p>
-        <Router>
-          <Link to="/App4">
-            <button >Learn React</button>
-          </Link>
-          <Route path="/App4" component={App4}/>
-        </Router>
-
+        전달받은 정보  : {info}
       </header>
     </div>
   );
